@@ -6,12 +6,7 @@ date: 2017-08-23
 
 *This post is part of a multi-post series that describes the steps to develop an analytics application from scratch.*
 
-*This is Part 1 of the series.*
-
-
-### Objective
-
-The objective is to enable, facilitate and invite analysis of ICT supplier contracts to the Australian Government.
+The objective of this app is to enable, facilitate and invite analysis of ICT supplier contracts to the Australian Government.
 
 The app should ideally be able to answer questions such as:
 - Which supplier has the largest Government footprint? (ie is represented across the highest number of Agencies)
@@ -28,13 +23,9 @@ The app will scrape, store, transform, clean, curate and present data using vari
 
 The approach documented below is intended to align with the levels of the Data Value Pyramid as described in Russell Jurney's book: [Agile Data Science 2.0](http://shop.oreilly.com/product/0636920051619.do)
 
-
-
-### Records
-
 In order for the app to function as expected a number of technologies and tools must be configured to work together, thereby forming our stack.
 
-This section deals with integrating the stack and enabling efficient data plumbing between the technologies.
+The steps below describe how to integrate the stack and enable efficient data plumbing between the technologies.
 
 
 ---
@@ -100,15 +91,14 @@ The "/all_suppliers" route uses Flask's render_template function to load the [su
 Adding bootstrap into our layout.html and setting our table class property in suppliers.html adds some nice styling to our rendered table.
 
 
+---
+**Next Post**
 
-### Charts and Reports
+That's the end of the first part of the post.
 
 Enhancements to the presentation can be made once the data plumbing and technologies are working in harmony.
 
-Enhancements could include visualisations, integrating additional datasets, and developing interactive analytical features.
+Enhancements will include visualisations, integrating additional datasets, and developing interactive analytical features.
 
-This section deals with cleaning, aggregating and curating (mining) the raw data into more digestable formats for exploration through integrated visualisations.
+The next post will address cleaning, aggregating and curating (mining) the raw data into more digestable formats for exploration through integrated visualisations.
 
-- data cleaning
-- curation of aggregate datasets
-- visualisations
