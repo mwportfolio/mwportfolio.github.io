@@ -82,7 +82,7 @@ GCP's AppEngine allows for Flask apps developed locally to be deployed onto the 
 
 The first thing our app needs to do is connect with GCP DataStore, read data, and display it in a simple table.
 
-The flask app is configured per the code in [main.py](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/code/python/main.py).
+The flask app is configured per the code in [main.py](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/python/main.py).
 
 The app is configured for a route named "/all_suppliers" which we will configure to list all records from our DataStore Kind "suppliers".
 
