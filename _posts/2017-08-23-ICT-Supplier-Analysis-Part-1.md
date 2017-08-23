@@ -60,15 +60,17 @@ GCP's DataStore service provides NoSQL functionality with some limitations. For 
 
 DataStore terms:
 - Kind = Collection/Table
-- Entity = Records
+- Entity = Record
 
-Since we already have our base data extracts we can now save these as new Kinds. Our list of suppliers will be saved into the 'suppliers' Kind, and our list of contracts will be saved into the 'supplier_contracts' Kind.
+Since we already have our base data extracts in JSON format we can now save these into DataStore as new Kinds. 
+
+Our JSON supplier list file will be saved into the 'suppliers' Kind, and our list of contracts will be saved into the 'supplier_contracts' Kind.
 
 The code in Jupyter Notebook [blah.ipynb](blah.ipynb) performs this task.
 
 Once data can be saved to DataStore the next step is to verify that it can be read, as shown in the notebook [blah2.ipynb](blah2.ipynb).
 
-With the data now readable from our database the next step is to present the records to the user.
+With the data now readable from our database the next step is to present the records to the user through a web interface.
 
 
 ---
@@ -84,9 +86,9 @@ The flask app is configured per the code in [main.py](https://github.com/mwportf
 
 The app is configured for a route named "/all_suppliers" which we will configure to list all records from our DataStore Kind "suppliers".
 
-We setup our app pages to use a HTML template [layout.html](layout.html) that will include standard layout, header, footer, and styling.
+Jinja2 is a templating engine for Python taht allows us to define our HTML template file [layout.html](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jinja2/layout.html) that will include standard layout, header, footer, and styling.
 
-The "/all_suppliers" route uses Flask's render_template function to load the [suppliers.html](suppliers.html) file, which extends our layout.html template and renders a standard HTML table iterating over the records from our DataStore Kind. 
+The "/all_suppliers" route uses Flask's render_template function to load the [suppliers.html](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jinja2/suppliers.html) file, which extends our layout.html template and renders a standard HTML table iterating over the records from our DataStore Kind. 
 
 Adding bootstrap into our layout.html and setting our table class property in suppliers.html adds some nice styling to our rendered table.
 
