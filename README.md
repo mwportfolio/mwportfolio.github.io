@@ -1,1 +1,0 @@
-Config, layout and content
