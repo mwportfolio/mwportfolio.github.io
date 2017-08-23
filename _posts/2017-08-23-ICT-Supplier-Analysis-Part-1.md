@@ -29,6 +29,7 @@ The app will scrape, store, transform, clean, curate and present data using vari
 The approach documented below is intended to align with the levels of the Data Value Pyramid as described in Russell Jurney's book: [Agile Data Science 2.0](http://shop.oreilly.com/product/0636920051619.do)
 
 
+
 ### Records
 
 In order for the app to function as expected a number of technologies and tools must be configured to work together, thereby forming our stack.
@@ -36,6 +37,7 @@ In order for the app to function as expected a number of technologies and tools 
 This section deals with integrating the stack and enabling efficient data plumbing between the technologies.
 
 
+---
 **Data Scrapes and Extracts**
 
 The tenders.gov.au public website lists tenders (business opportunities) for the Australian Government, as well as supplier and contract information that can all be extracted (scraped) using tools like the Python library urllib.
@@ -58,6 +60,7 @@ To extract the contract information for each supplier we will perform a search a
 Now that we have extracted our base data we will store it in a NoSQL database from which our web application can read. 
 
 
+---
 **Database Integration**
 
 Google Cloud Platform (GCP) was the platform chosen to host our database and web application for no other reason than the author's free trials had already expired for both AWS and Azure.
@@ -77,6 +80,7 @@ Once data can be saved to DataStore the next step is to verify that it can be re
 With the data now readable from our database the next step is to present the records to the user.
 
 
+---
 **Web Framework & Presentation**
 
 Flask was the web framework chosen to run our app pages. It runs on Python and has Jinja2 templating features which make developing pages a more streamlined process.
@@ -94,6 +98,7 @@ We setup our app pages to use a HTML template [layout.html](layout.html) that wi
 The "/all_suppliers" route uses Flask's render_template function to load the [suppliers.html](suppliers.html) file, which extends our layout.html template and renders a standard HTML table iterating over the records from our DataStore Kind. 
 
 Adding bootstrap into our layout.html and setting our table class property in suppliers.html adds some nice styling to our rendered table.
+
 
 
 ### Charts and Reports
