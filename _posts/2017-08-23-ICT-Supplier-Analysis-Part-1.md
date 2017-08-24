@@ -41,9 +41,10 @@ The app we're building will analyse supplier contracts, so we need data on suppl
 
 The tenders.gov.au public website lists tenders (business opportunities) for the Australian Government, as well as supplier and contract information that can all be extracted (scraped) using Python libraries such as urllib, Pandas, and json.
 
+&nbsp;
+
 **Dataset 1: Suppliers**
 
-&nbsp;
 
 The first dataset we want to extract from tenders.gov.au is a list of ICT Suppliers.
 
@@ -58,9 +59,10 @@ The JSON output contains the following elements for each supplier:
 - State, and
 - Postcode.
 
+&nbsp;
+
 **Dataset 2: Contracts**
 
-&nbsp;
 
 The second dataset we want to extract is a list of contracts for each supplier.
 
@@ -106,9 +108,10 @@ The first thing our app needs to do is connect with GCP DataStore, read data, an
 
 The flask app is configured per the code in [main.py](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/python/main.py).
 
+&nbsp;
+
 **Routes & Layouts**
 
-&nbsp;
 
 The app is configured for a route named "/all_suppliers" which we will configure to list all records from our DataStore Kind "suppliers".
 
@@ -116,9 +119,10 @@ Jinja2 is a templating engine for Python taht allows us to define our HTML templ
 
 The "/all_suppliers" route uses Flask's render_template function to load the [suppliers.html](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jinja2/suppliers.html) file, which extends our layout.html template and renders a standard HTML table iterating over the records from our DataStore Kind. 
 
+&nbsp;
+
 **Styling**
 
-&nbsp;
 
 Adding bootstrap into our layout.html and setting our table class property in suppliers.html adds some nice styling to our rendered table.
 
