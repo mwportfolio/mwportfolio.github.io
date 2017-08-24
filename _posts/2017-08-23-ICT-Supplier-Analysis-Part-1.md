@@ -137,6 +137,7 @@ For each line in the suppliers JSON file, create a DataStore Entity with the app
 
 &nbsp;
 
+![Python logo](https://www.python.org/static/favicon.ico)
 ~~~ python
 from google.cloud import datastore    
 import jsonlines, json
