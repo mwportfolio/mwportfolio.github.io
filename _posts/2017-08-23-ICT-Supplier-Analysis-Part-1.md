@@ -169,6 +169,47 @@ The first thing our app needs to do is connect with GCP DataStore, read data, an
 
 The flask app is configured per the code in [main.py](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/python/main.py).
 
+One of the URL routes/stubs (/contracts/supplier/ABN) has been configured to list the contracts for a single supplier. The supplier is identified in the URL by the ABN number parameter after the /contracts/supplier/ string. 
+
+Requests to this route perform a query against the DataStore Kind 'supplier_contracts' and render the results through the contracts.html template.
+
+~~~ python
+@app.route("/contracts/supplier/<ABN>")
+def supplier_contracts(ABN):
+
+    client = datastore.Client()
+    collection = 'supplier_contracts'
+    query = client.query(kind=collection)
+    query.add_filter('ABN', '=', ABN)
+    query.order = ['Title']
+
+    results = list(query.fetch())
+    contract_count = len(results)
+
+
+    contracts = []
+    for r in results:
+        s = datastore.Entity(r)
+        contract = {}
+        contract['ContractID'] = s.key.key.name
+        contract['Title'] = s.key.get('Title')
+        contract['Agency'] = s.key.get('Agency')
+        contract['Category'] = s.key.get('Category')
+        contract['Value'] = s.key.get('Value')
+        contracts.append(contract)
+
+    query_suppliername = client.query(kind='suppliers')
+    query_suppliername.add_filter('ABN', '=', ABN)
+    results_suppliername = list(query_suppliername.fetch(limit=1))
+    supplier_name = datastore.Entity(results_suppliername[0]).key.get('Name')
+
+
+    return render_template('contracts.html',
+        contracts=contracts,
+        ABN=ABN,
+        supplier_name=supplier_name,
+        contract_count=contract_count)
+~~~
 
 &nbsp;
 
