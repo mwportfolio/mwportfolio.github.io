@@ -52,6 +52,23 @@ We will be extracting the HTML data and transforming it into the more usable JSO
 
 The code in the Jupyter Notebook [scrape_ict_panel_suppliers.ipynb](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jupyter_notebooks/scrape_ict_panel_suppliers.ipynb) extracts HTML data from tenders.gov.au and produces the JSON file as output [ict_panel_suppliers.jsonl](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/datasets/ict_panel_suppliers.jsonl).
 
+~~~ python
+ict_panel_url = 'https://url_goes_here'
+
+# scrape and save to local file
+f = urllib.request.urlretrieve(ict_panel_url, "ict_panel_suppliers.html")
+
+# read HTML as DataFrame and set index
+t = pd.read_html("ict_panel_suppliers.html", attrs={'class': 'genT'}, header=0)
+suppliers_df = t[0]
+suppliers_df.index = suppliers_df.ABN
+
+# convert DataFrame to JSON and save
+f = open("ict_panel_suppliers.jsonl", "w")
+f.write(suppliers_df.to_json(orient='records').replace('},{', '}\n{').replace('[','').replace(']',''))
+f.close()
+~~~
+
 The JSON output contains the following elements for each supplier:
 
 - Australian Business Number (ABN),
