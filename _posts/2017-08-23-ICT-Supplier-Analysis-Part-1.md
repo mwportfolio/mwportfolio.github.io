@@ -13,6 +13,8 @@ The app should ideally be able to answer questions such as:
 - Which supplier has the largest total / individual contract value?
 - Which Agency has the largest total / individual contract?
 - How does an Agency's budget/expenses compare with current contracts?
+- How much overlap is there between Agencies for similar contracts?
+- Are there potential opportunities for consolidation and cost-saving?
 
 To allow these questions to be answered the app will need to present visualisations and tables that allow users to explore and interact with the data.
 
@@ -23,21 +25,27 @@ The app will scrape, store, transform, clean, curate and present data using vari
 
 The approach documented below is intended to align with the levels of the Data Value Pyramid as described in Russell Jurney's book: [Agile Data Science 2.0](http://shop.oreilly.com/product/0636920051619.do)
 
-In order for the app to function as expected a number of technologies and tools must be configured to work together, thereby forming our stack.
+In order for the app to function as expected a number of technologies and tools must be configured to work together.
 
 The steps below describe how to integrate the stack and enable efficient data plumbing between the technologies.
 
+The first step for an analytics app is to ensure we have data. Usable data.
+
+The app we're building will analyse supplier contracts, so we need data on suppliers and contracts. Fortunately the good folks at Australian Government have made available this data through a website: tenders.gov.au.
+
 
 ---
-**Data Scrapes and Extracts**
+### Data Scrapes and Extracts
 
-The tenders.gov.au public website lists tenders (business opportunities) for the Australian Government, as well as supplier and contract information that can all be extracted (scraped) using tools like the Python library urllib.
+The tenders.gov.au public website lists tenders (business opportunities) for the Australian Government, as well as supplier and contract information that can all be extracted (scraped) using Python libraries such as urllib, Pandas, and json.
 
 The first dataset we want to extract from tenders.gov.au is a list of ICT Suppliers.
 
 We will be extracting the HTML data and transforming it into the more usable JSON format for our application.
 
-The code in the Jupyter Notebook [scrape_ict_panel_suppliers.ipynb](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jupyter_notebooks/scrape_ict_panel_suppliers.ipynb) performs this first task, and producing a JSON file as output [ict_panel_suppliers.jsonl](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/datasets/ict_panel_suppliers.jsonl) containing the following elements:
+The code in the Jupyter Notebook [scrape_ict_panel_suppliers.ipynb](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jupyter_notebooks/scrape_ict_panel_suppliers.ipynb) extracts HTML data from tenders.gov.au and produces the JSON file as output [ict_panel_suppliers.jsonl](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/datasets/ict_panel_suppliers.jsonl).
+
+The JSON output contains the following elements for each supplier:
 
 - Australian Business Number (ABN),
 - Supplier Name, 
@@ -52,7 +60,7 @@ Now that we have extracted our base data we will store it in a NoSQL database fr
 
 
 ---
-**Database Integration**
+### Database Integration
 
 Google Cloud Platform (GCP) was the platform chosen to host our database and web application for no other reason than the author's free trials had already expired for both AWS and Azure.
 
@@ -74,7 +82,7 @@ With the data now readable from our database the next step is to present the rec
 
 
 ---
-**Web Framework & Presentation**
+### Web Framework & Presentation
 
 Flask was the web framework chosen to run our app pages. It runs on Python and has Jinja2 templating features which make developing pages a more streamlined process.
 
@@ -94,7 +102,7 @@ Adding bootstrap into our layout.html and setting our table class property in su
 
 
 ---
-**Next Post**
+### Next Post
 
 That's the end of the first part of the post.
 
