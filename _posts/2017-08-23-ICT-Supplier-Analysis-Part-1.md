@@ -36,12 +36,15 @@ The app we're building will analyse supplier contracts, so we need data on suppl
 
 ---
 ### Data Scrapes and Extracts
-\s\s
-\s\s
+
+&nbsp;
+
 The tenders.gov.au public website lists tenders (business opportunities) for the Australian Government, as well as supplier and contract information that can all be extracted (scraped) using Python libraries such as urllib, Pandas, and json.
 
 **Dataset 1: Suppliers**
-\s\s
+
+&nbsp;
+
 The first dataset we want to extract from tenders.gov.au is a list of ICT Suppliers.
 
 We will be extracting the HTML data and transforming it into the more usable JSON format for our application.
@@ -56,7 +59,9 @@ The JSON output contains the following elements for each supplier:
 - Postcode.
 
 **Dataset 2: Contracts**
-\s\s
+
+&nbsp;
+
 The second dataset we want to extract is a list of contracts for each supplier.
 
 To extract the contract information for each supplier we will perform a search against tenders.gov.au using the supplier's ABN. The code in the Jupyer Notebook [TODO.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/TODO.ipynb) performs this task.
@@ -66,8 +71,9 @@ Now that we have extracted our base data we will store it in a NoSQL database fr
 
 ---
 ### Database Integration
-\s\s
-\s\s
+
+&nbsp;
+
 Google Cloud Platform (GCP) was the platform chosen to host our database and web application for no other reason than the author's free trials had already expired for both AWS and Azure.
 
 GCP's DataStore service provides NoSQL functionality with some limitations. For example the ability to dump nested JSON into DataStore is not available, so some modelling of the data into an appropriate strucutre may need to occur before saving. 
@@ -89,8 +95,9 @@ With the data now readable from our database the next step is to present the rec
 
 ---
 ### Web Framework & Presentation
-\s\s
-\s\s
+
+&nbsp;
+
 Flask was the web framework chosen to run our app pages. It runs on Python and has Jinja2 templating features which make developing pages a more streamlined process.
 
 GCP's AppEngine allows for Flask apps developed locally to be deployed onto the Google Cloud for serving public users.
@@ -100,7 +107,9 @@ The first thing our app needs to do is connect with GCP DataStore, read data, an
 The flask app is configured per the code in [main.py](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/python/main.py).
 
 **Routes & Layouts**
-\s\s
+
+&nbsp;
+
 The app is configured for a route named "/all_suppliers" which we will configure to list all records from our DataStore Kind "suppliers".
 
 Jinja2 is a templating engine for Python taht allows us to define our HTML template file [layout.html](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jinja2/layout.html) that will include standard layout, header, footer, and styling.
@@ -108,14 +117,17 @@ Jinja2 is a templating engine for Python taht allows us to define our HTML templ
 The "/all_suppliers" route uses Flask's render_template function to load the [suppliers.html](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jinja2/suppliers.html) file, which extends our layout.html template and renders a standard HTML table iterating over the records from our DataStore Kind. 
 
 **Styling**
-\s\s
+
+&nbsp;
+
 Adding bootstrap into our layout.html and setting our table class property in suppliers.html adds some nice styling to our rendered table.
 
 
 ---
 ### Next Post
-\s\s
-\s\s
+
+&nbsp;
+
 That's the end of the first part of the post.
 
 Enhancements to the presentation can be made once the data plumbing and technologies are working in harmony.
