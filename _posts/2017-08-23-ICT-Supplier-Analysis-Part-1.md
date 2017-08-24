@@ -87,6 +87,26 @@ To extract the contract information for each supplier we will perform a search a
 
 The code in the Jupyer Notebook [extract_supplier_contract_data.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/extract_supplier_contract_data.ipynb) performs this task.
 
+An important function from the notebook is listed below which is called for each supplier, passing in their ABN number and performing a scrape of their contracts from tenders.gov.au.
+
+~~~ python
+contracts = []
+def getContracts(ABN):
+    current_url = 'https://urlgoeshere' + ABN + 'restofurl'
+    current_ABN_contracts_df = (
+      pd.read_csv(current_url,
+      skiprows=16,
+      delimiter='\t',
+      parse_dates=['Contract Start Date', 'Contract End Date', 'Publish Date']
+      ))            
+      
+    if current_ABN_contracts_df.iloc[0].str.contains('no results', case=False, na=False)['CN ID'] == False:
+        contracts.append(current_ABN_contracts_df)
+        return True
+     else:
+        return None
+~~~
+
 Now that we have extracted our base data we will store it in a NoSQL database from which our web application can read.  
 
 
