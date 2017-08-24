@@ -129,6 +129,28 @@ Our JSON supplier list file will be saved into the 'suppliers' Kind, and our lis
 
 The code in Jupyter Notebook [store_json_into_nosql.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/store_json_into_nosql.ipynb) performs this task.
 
+For each line in the suppliers JSON file, create a DataStore Entity with the appropriate properties, then save/put the Entity into the Kind.
+
+~~~ python
+from google.cloud import datastore    
+import jsonlines, json
+
+client = datastore.Client()
+collection = 'suppliers'
+f = jsonlines.open('ict_panel_suppliers.jsonl', 'r')
+for r in f.iter():
+    key = client.key(collection, r['ABN'])
+    supplier = datastore.Entity(key=key)
+    supplier['Name'] = r['Supplier Name']
+    supplier['ABN'] = r['ABN']
+    supplier['State'] = r['State']
+    supplier['Postcode'] = r['Postcode']
+    client.put(supplier)
+    print('Saved {}: {}'.format(supplier.key.name, supplier['Name']))
+    
+f.close()
+~~~
+
 Once data can be saved to DataStore the next step is to verify that it can be read, also shown in store_json_into_nosql.ipynb.
 
 With the data now readable from our database the next step is to present the records to the user through a web interface.
