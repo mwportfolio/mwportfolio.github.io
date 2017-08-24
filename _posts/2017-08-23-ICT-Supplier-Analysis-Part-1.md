@@ -52,6 +52,8 @@ We will be extracting the HTML data and transforming it into the more usable JSO
 
 The code in the Jupyter Notebook [scrape_ict_panel_suppliers.ipynb](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jupyter_notebooks/scrape_ict_panel_suppliers.ipynb) extracts HTML data from tenders.gov.au and produces the JSON file as output [ict_panel_suppliers.jsonl](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/datasets/ict_panel_suppliers.jsonl).
 
+&nbsp;
+
 ~~~ python
 ict_panel_url = 'https://url_goes_here'
 
@@ -88,6 +90,8 @@ To extract the contract information for each supplier we will perform a search a
 The code in the Jupyer Notebook [extract_supplier_contract_data.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/extract_supplier_contract_data.ipynb) performs this task.
 
 An important function from the notebook is listed below which is called for each supplier, passing in their ABN number and performing a scrape of their contracts from tenders.gov.au.
+
+&nbsp;
 
 ~~~ python
 contracts = []
@@ -131,6 +135,8 @@ The code in Jupyter Notebook [store_json_into_nosql.ipynb](https://github.com/mw
 
 For each line in the suppliers JSON file, create a DataStore Entity with the appropriate properties, then save/put the Entity into the Kind.
 
+&nbsp;
+
 ~~~ python
 from google.cloud import datastore    
 import jsonlines, json
@@ -169,9 +175,17 @@ The first thing our app needs to do is connect with GCP DataStore, read data, an
 
 The flask app is configured per the code in [main.py](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/python/main.py).
 
+**Routes & Layouts**
+
 One of the URL routes/stubs (/contracts/supplier/ABN) has been configured to list the contracts for a single supplier. The supplier is identified in the URL by the ABN number parameter after the /contracts/supplier/ string. 
 
-Requests to this route perform a query against the DataStore Kind 'supplier_contracts' and render the results through the contracts.html template.
+Requests to this route perform a query against the DataStore Kind 'supplier_contracts' and render the results through the [contracts.html](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jinja2/contracts.html) template.
+
+The "/contracts/supplier/ABN" route uses Flask's render_template function to load the [contracts.html](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jinja2/contracts.html) file, which extends our [layout.html](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jinja2/layout.html) template and renders a standard HTML table iterating over the records passed from main.py. 
+
+Jinja2 is a templating engine for Python that allows us to define our HTML template file [layout.html](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jinja2/layout.html) that will include standard layout, header, footer, and styling.
+
+&nbsp;
 
 ~~~ python
 @app.route("/contracts/supplier/<ABN>")
@@ -210,17 +224,6 @@ def supplier_contracts(ABN):
         supplier_name=supplier_name,
         contract_count=contract_count)
 ~~~
-
-&nbsp;
-
-**Routes & Layouts**
-
-
-The app is configured for a route named "/all_suppliers" which we will configure to list all records from our DataStore Kind "suppliers".
-
-Jinja2 is a templating engine for Python taht allows us to define our HTML template file [layout.html](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jinja2/layout.html) that will include standard layout, header, footer, and styling.
-
-The "/all_suppliers" route uses Flask's render_template function to load the [suppliers.html](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jinja2/suppliers.html) file, which extends our layout.html template and renders a standard HTML table iterating over the records from our DataStore Kind. 
 
 &nbsp;
 
