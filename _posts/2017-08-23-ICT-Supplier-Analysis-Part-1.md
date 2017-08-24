@@ -66,9 +66,11 @@ The JSON output contains the following elements for each supplier:
 
 The second dataset we want to extract is a list of contracts for each supplier.
 
-To extract the contract information for each supplier we will perform a search against tenders.gov.au using the supplier's ABN. The code in the Jupyer Notebook [TODO.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/TODO.ipynb) performs this task.
+To extract the contract information for each supplier we will perform a search against tenders.gov.au using the supplier's ABN. 
 
-Now that we have extracted our base data we will store it in a NoSQL database from which our web application can read. 
+The code in the Jupyer Notebook [extract_supplier_contract_data.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/extract_supplier_contract_data.ipynb) performs this task.
+
+Now that we have extracted our base data we will store it in a NoSQL database from which our web application can read.  
 
 
 ---
@@ -88,9 +90,9 @@ Since we already have our base data extracts in JSON format we can now save thes
 
 Our JSON supplier list file will be saved into the 'suppliers' Kind, and our list of contracts will be saved into the 'supplier_contracts' Kind.
 
-The code in Jupyter Notebook [blah.ipynb](blah.ipynb) performs this task.
+The code in Jupyter Notebook [store_json_into_nosql.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/store_json_into_nosql.ipynb) performs this task.
 
-Once data can be saved to DataStore the next step is to verify that it can be read, as shown in the notebook [blah2.ipynb](blah2.ipynb).
+Once data can be saved to DataStore the next step is to verify that it can be read, also shown in store_json_into_nosql.ipynb.
 
 With the data now readable from our database the next step is to present the records to the user through a web interface.
 
@@ -107,6 +109,7 @@ GCP's AppEngine allows for Flask apps developed locally to be deployed onto the 
 The first thing our app needs to do is connect with GCP DataStore, read data, and display it in a simple table.
 
 The flask app is configured per the code in [main.py](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/python/main.py).
+
 
 &nbsp;
 
