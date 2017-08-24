@@ -175,7 +175,10 @@ The first thing our app needs to do is connect with GCP DataStore, read data, an
 
 The flask app is configured per the code in [main.py](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/python/main.py).
 
+&nbsp;
+
 **Routes & Layouts**
+
 
 One of the URL routes/stubs (/contracts/supplier/ABN) has been configured to list the contracts for a single supplier. The supplier is identified in the URL by the ABN number parameter after the /contracts/supplier/ string. 
 
