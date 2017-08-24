@@ -95,6 +95,8 @@ An important function from the notebook is listed below which is called for each
 
 &nbsp;
 
+<img src="http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png" alt="Jupyter logo" style="width: 80px; height: 80px"/>
+
 ~~~ python
 contracts = []
 def getContracts(ABN):
@@ -139,7 +141,8 @@ For each line in the suppliers JSON file, create a DataStore Entity with the app
 
 &nbsp;
 
-![Python logo](https://www.python.org/static/favicon.ico)
+<img src="http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png" alt="Jupyter logo" style="width: 80px; height: 80px"/>
+
 ~~~ python
 from google.cloud import datastore    
 import jsonlines, json
@@ -192,6 +195,8 @@ The "/contracts/supplier/ABN" route uses Flask's render_template function to loa
 Jinja2 is a templating engine for Python that allows us to define our HTML template file [layout.html](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jinja2/layout.html) that will include standard layout, header, footer, and styling.
 
 &nbsp;
+
+![Python logo](https://www.python.org/static/favicon.ico)
 
 ~~~ python
 @app.route("/contracts/supplier/<ABN>")
