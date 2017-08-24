@@ -54,6 +54,8 @@ The code in the Jupyter Notebook [scrape_ict_panel_suppliers.ipynb](https://gith
 
 &nbsp;
 
+<img src="http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png" alt="Jupyter logo" style="width: 48px; height: 48px"/>
+
 ~~~ python
 ict_panel_url = 'https://url_goes_here'
 
