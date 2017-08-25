@@ -54,7 +54,7 @@ The code in the Jupyter Notebook extracts HTML data from tenders.gov.au and prod
 
 &nbsp;
 
-<img src="http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png" alt="Jupyter logo" style="width: 80px; height: 80px"/> #### [scrape_ict_panel_suppliers.ipynb](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jupyter_notebooks/scrape_ict_panel_suppliers.ipynb)
+<img src="http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png" alt="Jupyter logo" style="width: 80px; height: 80px"/> [scrape_ict_panel_suppliers.ipynb](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jupyter_notebooks/scrape_ict_panel_suppliers.ipynb)
 
 ~~~ python
 ict_panel_url = 'https://url_goes_here'
@@ -89,13 +89,11 @@ The second dataset we want to extract is a list of contracts for each supplier.
 
 To extract the contract information for each supplier we will perform a search against tenders.gov.au using the supplier's ABN. 
 
-The code in the Jupyer Notebook [extract_supplier_contract_data.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/extract_supplier_contract_data.ipynb) performs this task.
-
-An important function from the notebook is listed below which is called for each supplier, passing in their ABN number and performing a scrape of their contracts from tenders.gov.au.
+An important function from the Jupyter Notebook is listed below which is called for each supplier, passing in their ABN number and performing a scrape of their contracts from tenders.gov.au.
 
 &nbsp;
 
-<img src="http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png" alt="Jupyter logo" style="width: 80px; height: 80px"/>
+<img src="http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png" alt="Jupyter logo" style="width: 80px; height: 80px"/> [extract_supplier_contract_data.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/extract_supplier_contract_data.ipynb)
 
 ~~~ python
 contracts = []
@@ -135,13 +133,11 @@ Since we already have our base data extracts in JSON format we can now save thes
 
 Our JSON supplier list file will be saved into the 'suppliers' Kind, and our list of contracts will be saved into the 'supplier_contracts' Kind.
 
-The code in Jupyter Notebook [store_json_into_nosql.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/store_json_into_nosql.ipynb) performs this task.
-
 For each line in the suppliers JSON file, create a DataStore Entity with the appropriate properties, then save/put the Entity into the Kind.
 
 &nbsp;
 
-<img src="http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png" alt="Jupyter logo" style="width: 80px; height: 80px"/>
+<img src="http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png" alt="Jupyter logo" style="width: 80px; height: 80px"/> [store_json_into_nosql.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/store_json_into_nosql.ipynb)
 
 ~~~ python
 from google.cloud import datastore    
@@ -196,7 +192,7 @@ Jinja2 is a templating engine for Python that allows us to define our HTML templ
 
 &nbsp;
 
-![Python logo](https://www.python.org/static/favicon.ico)
+![Python logo](https://www.python.org/static/favicon.ico) [main.py](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/python/main.py)
 
 ~~~ python
 @app.route("/contracts/supplier/<ABN>")
