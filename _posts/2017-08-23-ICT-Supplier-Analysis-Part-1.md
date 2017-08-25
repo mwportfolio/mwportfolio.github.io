@@ -192,11 +192,11 @@ Requests to this route perform a query against the DataStore Kind 'supplier_cont
 
 The "/contracts/supplier/ABN" route uses Flask's render_template function to load the [contracts.html](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jinja2/contracts.html) file, which extends our [layout.html](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jinja2/layout.html) template and renders a standard HTML table iterating over the records passed from main.py. 
 
-<img src="https://www.w3.org/html/logo/downloads/HTML5_Logo_256.png" alt="HTML5 logl" style="width:80px; height:80px"/>
+&nbsp;
+
+<img src="https://www.w3.org/html/logo/downloads/HTML5_Logo_256.png" alt="HTML5 logo" style="width: 80px; height: 80px"/>
 
 ~~~ html
-{% extends "layout.html" %}
-{% block body %}  
 <div>    
     <p class="lead">{{contract_count}} Contracts for {{supplier_name}}</p>
 
@@ -221,7 +221,6 @@ The "/contracts/supplier/ABN" route uses Flask's render_template function to loa
         </tbody>
     </table>
 </div>
-{% endblock %}
 ~~~
 
 Jinja2 is a templating engine for Python that allows us to define our HTML template file [layout.html](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jinja2/layout.html) that will include standard layout, header, footer, and styling.
