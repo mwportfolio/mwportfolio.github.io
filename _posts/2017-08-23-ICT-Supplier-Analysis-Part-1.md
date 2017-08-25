@@ -242,7 +242,10 @@ Adding bootstrap into our layout.html and setting our table class property in su
 
 The D3 horizontal bar chart shows the top 5 total contract value across Agencies per supplier.
 
+&nbsp;
+
 ![Screenshot contracts for supplier](https://raw.githubusercontent.com/mwportfolio/ICT-Supplier-Analysis/master/screenshots/screenshot_app_contracts_for_supplier.PNG)
+
 
 ---
 ### Next Post
