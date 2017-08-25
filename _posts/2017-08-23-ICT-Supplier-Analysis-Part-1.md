@@ -239,6 +239,7 @@ def supplier_contracts(ABN):
 
 Adding bootstrap into our layout.html and setting our table class property in suppliers.html adds some nice styling to our rendered table.
 
+![Screenshot contracts for supplier](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/screenshots/screenshot_app_contracts_for_supplier.PNG)
 
 ---
 ### Next Post
