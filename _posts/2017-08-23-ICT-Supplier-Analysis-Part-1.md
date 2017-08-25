@@ -93,7 +93,7 @@ An important function from the Jupyter Notebook is listed below which is called 
 
 &nbsp;
 
-<img src="http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png" alt="Jupyter logo" style="width: 80px; height: 80px"/> [extract_supplier_contract_data.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/extract_supplier_contract_data.ipynb)
+![Jupyter logo](https://raw.githubusercontent.com/jupyter/notebook/master/notebook/static/base/images/favicon.ico) [extract_supplier_contract_data.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/extract_supplier_contract_data.ipynb)
 
 ~~~ python
 contracts = []
@@ -137,7 +137,7 @@ For each line in the suppliers JSON file, create a DataStore Entity with the app
 
 &nbsp;
 
-<img src="http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png" alt="Jupyter logo" style="width: 80px; height: 80px"/> [store_json_into_nosql.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/store_json_into_nosql.ipynb)
+![Jupyter logo](https://raw.githubusercontent.com/jupyter/notebook/master/notebook/static/base/images/favicon.ico) [store_json_into_nosql.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/store_json_into_nosql.ipynb)
 
 ~~~ python
 from google.cloud import datastore    
@@ -237,9 +237,11 @@ def supplier_contracts(ABN):
 **Styling**
 
 
-Adding bootstrap into our layout.html and setting our table class property in suppliers.html adds some nice styling to our rendered table.
+Adding bootstrap into our layout.html and setting our table class property in suppliers.html adds some nice styling to our rendered table. 
 
-![Screenshot contracts for supplier](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/screenshots/screenshot_app_contracts_for_supplier.PNG)
+The D3 horizontal bar chart shows the top 5 total contract value across Agencies per supplier.
+
+![Screenshot contracts for supplier](https://raw.githubusercontent.com/mwportfolio/ICT-Supplier-Analysis/master/screenshots/screenshot_app_contracts_for_supplier.PNG)
 
 ---
 ### Next Post
