@@ -9,12 +9,13 @@ date: 2017-08-23
 The objective of this app is to enable, facilitate and invite analysis of ICT supplier contracts to the Australian Government.
 
 The app should ideally be able to answer questions such as:
-- Which supplier has the largest Government footprint? (ie is represented across the highest number of Agencies)
-- Which supplier has the largest total / individual contract value?
-- Which Agency has the largest total / individual contract?
-- How does an Agency's budget/expenses compare with current contracts?
-- How much overlap is there between Agencies for similar contracts?
-- Are there potential opportunities for consolidation and cost-saving?
+
+> - Which supplier has the largest Government footprint? (ie is represented across the highest number of Agencies)
+> - Which supplier has the largest total / individual contract value?
+> - Which Agency has the largest total / individual contract?
+> - How does an Agency's budget/expenses compare with current contracts?
+> - How much overlap is there between Agencies for similar contracts?
+> - Are there potential opportunities for consolidation and cost-saving?
 
 To allow these questions to be answered the app will need to present visualisations and tables that allow users to explore and interact with the data.
 
