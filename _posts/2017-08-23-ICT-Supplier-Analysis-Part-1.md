@@ -50,11 +50,11 @@ The first dataset we want to extract from tenders.gov.au is a list of ICT Suppli
 
 We will be extracting the HTML data and transforming it into the more usable JSON format for our application.
 
-The code in the Jupyter Notebook [scrape_ict_panel_suppliers.ipynb](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jupyter_notebooks/scrape_ict_panel_suppliers.ipynb) extracts HTML data from tenders.gov.au and produces the JSON file as output [ict_panel_suppliers.jsonl](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/datasets/ict_panel_suppliers.jsonl).
+The code in the Jupyter Notebook extracts HTML data from tenders.gov.au and produces the JSON file as output [ict_panel_suppliers.jsonl](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/datasets/ict_panel_suppliers.jsonl).
 
 &nbsp;
 
-<img src="http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png" alt="Jupyter logo" style="width: 80px; height: 80px"/>
+<img src="http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png" alt="Jupyter logo" style="width: 80px; height: 80px"/> #### [scrape_ict_panel_suppliers.ipynb](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jupyter_notebooks/scrape_ict_panel_suppliers.ipynb)
 
 ~~~ python
 ict_panel_url = 'https://url_goes_here'
