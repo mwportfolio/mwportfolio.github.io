@@ -19,7 +19,7 @@ The app should ideally be able to answer questions such as:
 To allow these questions to be answered the app will need to present visualisations and tables that allow users to explore and interact with the data.
 
 The app will scrape, store, transform, clean, curate and present data using various technologies and tools across the full tech stack including: 
-- Python, Pandas, urllib, BeautifulSoup, Jupyter
+- Python, Pandas, urllib, Jupyter
 - HTML, JSON, Google Cloud Platform (GCP) DataStore
 - Flask, GCP AppEngine, Bootstrap, d3
 
