@@ -54,7 +54,7 @@ The code in the Jupyter Notebook extracts HTML data from tenders.gov.au and prod
 
 &nbsp;
 
-<img src="http://blog.jupyter.org/content/images/2015/02/jupyter-sq-text.png" alt="Jupyter logo" style="width: 80px; height: 80px"/> [scrape_ict_panel_suppliers.ipynb](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jupyter_notebooks/scrape_ict_panel_suppliers.ipynb)
+![Jupyter logo](https://raw.githubusercontent.com/jupyter/notebook/master/notebook/static/base/images/favicon.ico) [scrape_ict_panel_suppliers.ipynb](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jupyter_notebooks/scrape_ict_panel_suppliers.ipynb)
 
 ~~~ python
 ict_panel_url = 'https://url_goes_here'
