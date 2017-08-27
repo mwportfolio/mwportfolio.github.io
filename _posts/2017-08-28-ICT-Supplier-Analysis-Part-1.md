@@ -55,7 +55,7 @@ The code in the Jupyter Notebook extracts HTML data from tenders.gov.au and prod
 
 &nbsp;
 
-![Jupyter logo](https://raw.githubusercontent.com/jupyter/notebook/master/notebook/static/base/images/favicon.ico) [scrape_ict_panel_suppliers.ipynb](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jupyter_notebooks/scrape_ict_panel_suppliers.ipynb)
+![Jupyter logo](http://jupyter.org/favicon.ico) [scrape_ict_panel_suppliers.ipynb](https://github.com/mwportfolio/ICT-Supplier-Analysis/blob/master/jupyter_notebooks/scrape_ict_panel_suppliers.ipynb)
 
 ~~~ python
 ict_panel_url = 'https://url_goes_here'
@@ -94,7 +94,7 @@ An important function from the Jupyter Notebook is listed below which is called 
 
 &nbsp;
 
-![Jupyter logo](https://raw.githubusercontent.com/jupyter/notebook/master/notebook/static/base/images/favicon.ico) [extract_supplier_contract_data.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/extract_supplier_contract_data.ipynb)
+![Jupyter logo](http://jupyter.org/favicon.ico) [extract_supplier_contract_data.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/extract_supplier_contract_data.ipynb)
 
 ~~~ python
 contracts = []
@@ -138,7 +138,7 @@ For each line in the suppliers JSON file, create a DataStore Entity with the app
 
 &nbsp;
 
-![Jupyter logo](https://raw.githubusercontent.com/jupyter/notebook/master/notebook/static/base/images/favicon.ico) [store_json_into_nosql.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/store_json_into_nosql.ipynb)
+![Jupyter logo](http://jupyter.org/favicon.ico) [store_json_into_nosql.ipynb](https://github.com/mwportfolio/blob/master/jupyter_notebooks/store_json_into_nosql.ipynb)
 
 ~~~ python
 from google.cloud import datastore    
