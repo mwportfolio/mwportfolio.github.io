@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building an App to Analyse Supplier Contracts - Part 1"
-date: 2017-08-23
+date: 2017-08-28
 ---
 
 *This post is part of a multi-post series that describes the steps to develop an analytics application from scratch.*
@@ -10,7 +10,7 @@ The objective of this app is to enable, facilitate and invite analysis of ICT su
 
 The app should ideally be able to answer questions such as:
 
-> - Which supplier has the largest Government footprint? (ie is represented across the highest number of Agencies)
+> - Which supplier has the largest Government footprint? (i.e. is represented across the highest number of Agencies)
 > - Which supplier has the largest total / individual contract value?
 > - Which Agency has the largest total / individual contract?
 > - How does an Agency's budget/expenses compare with current contracts?
@@ -30,7 +30,7 @@ In order for the app to function as expected a number of technologies and tools 
 
 The steps below describe how to integrate the stack and enable efficient data plumbing between the technologies.
 
-The first step for an analytics app is to ensure we have data. Usable data.
+The first step for an analytics app is to ensure we have data; *usable* data.
 
 The app we're building will analyse supplier contracts, so we need data on suppliers and contracts. Fortunately the good folks at Australian Government have made available this data through a website: tenders.gov.au.
 
