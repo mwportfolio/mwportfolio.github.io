@@ -87,6 +87,6 @@ Adding Bootstrap CSS for styling the app gave it a modern twist that will hopefu
 
 ![Screenshot](https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/CSV-to-XML-Conversion-Screenshot.png)
 
-So even without any servers, infrastructure, automated scheduling etc there is still plenty of features and capabilities to squeeze out of even some of the oldest tech laying about the place.
+So even without any servers, infrastructure, automated scheduling etc there are still plenty of features and capabilities to squeeze out of even some of the oldest tech laying about the place.
 
 Thanks for reading about my survival adventures in front-end development.
