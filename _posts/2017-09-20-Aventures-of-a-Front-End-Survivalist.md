@@ -35,3 +35,36 @@ function element(name,content){
     return xml
 }
 ~~~
+
+So far, so good. But the end-user for whom this solution is designed is unlikely to care about such tech efficiencies. Rather they are likely to want a simple interface where they can load a source file, and a capability to retrieve the automagically-converted XML file.
+
+The next challenge therefore was loading a file into the webpage. I knew this was possible with HTML/JavaScript but perhaps there is a more modern, elegant solution. 
+
+HTML5 has a capability called FileReader which handles reading files into memory and making them accessible to the web page.
+
+The source dataset that my user will likely be uploading will be structured. Ideally it will contain a consistent structure so that my web app can consistently produce the desired XML output.
+
+The CSV format is generally available as an export option through most data/BI tools and as a bonus can be read and manipulated using Excel. Furthermore there is a library called [PapaParse](http://papaparse.com/) which handles parsing CSV files which will surely come in handy for my solution, so into the tech basket it goes.
+
+The following snippet opens the "File Open" dialog where the user can select a file accessible to them to be imported into memory and processed.
+
+~~~ javascript
+var file = this.files[0];
+var reader = new FileReader();
+reader.onload = function(progressEvent) {
+    Papa.parse(file, {   
+        header: true,   
+        complete: function(results) {    
+            parsed_csv = results.data;    
+            processResults(results);   
+        }  
+    }); 
+}  
+
+reader.readAsText(file);
+~~~
+
+So now, all within a browser, I have capability to:
+- load and process a structured CSV file, and 
+- efficiently manufacture an XML file.
+
