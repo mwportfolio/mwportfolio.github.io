@@ -20,6 +20,6 @@ But how would I make it happen? And with what tools? Is is even possible without
 
 I knew from my front-end experience that jQuery, d3, and even base JavaScript all had capabilities that allowed for XML/JSON manipulation, so my first challenge was to convert a dataset into the target dataset specification as supplied by the organisation managing the remote endpoint.
 
-The ever helpful Google points me in the direction of an old post on an (O'Reilly website)[http://archive.oreilly.com/pub/h/2127] which describes how to create nested XML documents (strings) quickly with just a couple of functions. That would be helpful later, so I gathered this nugget into my tech basket and continued.
+The ever helpful Google points me in the direction of an old post on an [http://archive.oreilly.com/pub/h/2127](O'Reilly website) which describes how to create nested XML documents (strings) quickly with just a couple of functions. That would be helpful later, so I gathered this nugget into my tech basket and continued.
 
 
