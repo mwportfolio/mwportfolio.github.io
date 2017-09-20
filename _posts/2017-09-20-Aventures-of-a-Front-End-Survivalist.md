@@ -66,5 +66,25 @@ reader.readAsText(file);
 
 So now, all within a browser, I have capability to:
 - load and process a structured CSV file, and 
-- efficiently manufacture an XML file.
+- efficiently manufacture a XML string.
 
+The final structural challenge was to provide the XML string as a "downloadable" or saveable XML file, which could then be uploaded to the remote XML endpoint.
+
+The web has come a long way. God bless it and its inhabitants. Some time ago, Eli Grey developed the [FileSaver.js](https://eligrey.com/blog/saving-generated-files-on-the-client-side/) JavaScript library which among other things allows the saving of documents from strings, all within the browser.
+
+The final piece in my basket of tech nuggets. Now I could offer the user an XML file to download/save, from the XML string I manufactured, from the CSV file uploaded by the user.
+
+Once the library was loaded, a couple of lines provided the final functionality:
+
+~~~ javascript
+var blob = new Blob([xmlString], {type: "text/xml"});
+saveAs(blob, "test.xml");
+~~~
+
+All libraries used were accessed via CDN servers, making the app quite portable with no dependencies, only a single HTML file with all functionality baked in.
+
+Adding Bootstrap CSS for styling the app gave it a modern twist that will hopefully makle it feel more familiar and palatable to the end user.
+
+So even without any servers, infrastructure, automated scheduling etc there is still plenty of features and capabilities to squeeze out of even some of the oldest tech laying about the place.
+
+Thanks for reading about my survival adventures in front-end development.
