@@ -22,4 +22,17 @@ I knew from my front-end experience that jQuery, d3, and even base JavaScript al
 
 The ever helpful Google points me in the direction of an old post on an [O'Reilly website](http://archive.oreilly.com/pub/h/2127) which describes how to create nested XML documents (strings) quickly with just a couple of functions. That would be helpful later, so I gathered this nugget into my tech basket and continued.
 
+--- javascript
+// Bare bones XML writer - no attributes
+function element(name,content){
+    var xml
+    if (!content){
+        xml='<' + name + '/>'
+    }
+    else {
+        xml='<'+ name + '>' + content + '</' + name + '>'
+    }
+    return xml
+}
 
+---
