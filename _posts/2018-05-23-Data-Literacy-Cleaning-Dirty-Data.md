@@ -33,7 +33,6 @@ We will be using Pandas library to access/manipulate the dataset, so let's pick 
 
 
 ![Python logo](https://www.python.org/static/favicon.ico)
-
 ~~~ python
 import pandas as pd
 
@@ -52,11 +51,12 @@ Looking at values of the rows it seems like the column headers are not at the to
 
 The first 2 rows of this file don't seem to contain anything valuable so we can tell Pandas to skip these rows and re-load the file.
 
-```python
+![Python logo](https://www.python.org/static/favicon.ico)
+~~~python
 df_raw = pd.read_excel(url, skiprows=2)
 
 df_raw.head()
-```
+~~~
 
 Now we can see that our column headers seem to be in the right place. Great!
 
@@ -66,9 +66,11 @@ We can see some date/time columns such as "Approved Date" and "Start Date", and 
 
 Let's have a look.
 
-```python
+
+![Python logo](https://www.python.org/static/favicon.ico)
+~~~python
 df_raw.info()
-```
+~~~
 
 The above command lists the columns and datatypes from our DataFrame called df_raw.
 
@@ -78,11 +80,13 @@ In fact all of the date/time columns are all set to the "object" datatype, which
 
 We've found the second issue with our dirty data file which needs to be cleaned: date/time columns, so let's re-load the data file and specify which columns should be parsed as dates.
 
-```python
+
+![Python logo](https://www.python.org/static/favicon.ico)
+~~~python
 df_raw = pd.read_excel(url, skiprows=2, parse_dates=["Approved Date", "Start Date"])
 
 df_raw.info()
-```
+~~~
 
 Great, now our date/time columns have changed from being "object" datatype to "datetime" datatype!
 
@@ -96,17 +100,21 @@ It's odd that all of the columns have meaningful names except this one. Perhaps 
 
 Before we ignore it, let's have a quick look at the values in the column.
 
-```python
+
+![Python logo](https://www.python.org/static/favicon.ico)
+~~~python
 df_raw.loc[:, "Unnamed: 39"]
-'''
+~~~
  
 Okay, the column seems like it's empty so let's delete (drop) it from our dataset.
 
-```python
+
+![Python logo](https://www.python.org/static/favicon.ico)
+~~~python
 df_raw.drop("Unnamed: 39", axis=1, inplace=True)
 
 df_raw.head()
-```
+~~~
 
 The above command drops/deletes the column from our DataFrame, so now we have relatively clean dataset to perform our analysis from our original dirty data file scraped from the web!
 
