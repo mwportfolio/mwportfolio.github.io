@@ -25,14 +25,13 @@ Some examples of dirty data might include:
 
 So before we can analyse or visualise our data properly we first need to resolve these issues.
 
-Let's start by having a look at a public dataset found on GrantsConnect (http://grants.gov.au).
+Let's start by having a look at a public dataset found on [GrantsConnect](http://grants.gov.au).
 
 This website has a page which provides a handy list of downloadable Excel files per time period - thanks GrantsConnect!
 
 We will be using Pandas library to access/manipulate the dataset, so let's pick one of the downloads from the list, copy it's URL, and open it in Pandas.
 
-![Python logo]
-(https://www.python.org/stable/static/favicon.ico)
+![Python logo](https://www.python.org/stable/static/favicon.ico)
 ~~~ python
 import pandas as pd
 
