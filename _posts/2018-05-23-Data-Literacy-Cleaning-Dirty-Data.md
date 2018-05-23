@@ -1,3 +1,8 @@
+---
+layout: post
+title: "Encouraging Data Literacy - Data Cleaning"
+date: 2018-05-23
+---
 
 This poat is designed to improve data literacy by encouraging good data cleaning habits.
 
@@ -26,7 +31,8 @@ This website has a page which provides a handy list of downloadable Excel files 
 
 We will be using Pandas library to access/manipulate the dataset, so let's pick one of the downloads from the list, copy it's URL, and open it in Pandas.
 
-```python
+![Python logo](https://www.python.org/stable/static/favicon.ico)
+~~~ python
 import pandas as pd
 
 url = 'http://grants.gov.au/xxxxx77w3485w8tsgDownloadURLgoeshere'
@@ -34,7 +40,7 @@ url = 'http://grants.gov.au/xxxxx77w3485w8tsgDownloadURLgoeshere'
 df_raw = pd.read_excel(url)
 
 df_raw.head()
-```
+~~~
 
 The above commands attempt to read the Excel file located at the address in "url" variable, which we copied from the GrantsConnect website, then display the first 5 rows of the file.
 
