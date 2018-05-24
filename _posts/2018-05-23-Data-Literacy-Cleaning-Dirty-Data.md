@@ -45,7 +45,11 @@ test.head()
 
 The above commands attempt to read the Excel file located at the address in "url" variable, which we copied from the GrantsConnect website, then display the first 5 rows of the file.
 
+&bnsp;
+
 ![Raw Dataset](https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/GrantConnectPublicRawData.png)
+
+&bnsp;
 
 We can see that something does not look exactly right - for example, the column headers are labelled "Unnamed" instead of having meaningful names.
 
@@ -60,7 +64,11 @@ test2 = pd.read_excel(url, skiprows=2)
 test2.head()
 ~~~
 
+&bnsp;
+
 ![Raw dataset with headers](https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/GrantConnectPublicRawDataWithHeader.png)
+
+&bnsp;
 
 Now we can see that our column headers seem to be in the right place. Great!
 
@@ -70,7 +78,11 @@ We can see some date/time columns such as "Approved Date" and "Start Date", and 
 
 Let's have a look. The `test2.dtypes` command lists the columns and datatypes from our DataFrame.
 
+&bnsp;
+
 ![Raw dataset without datatypes](https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/GrantConnectPublicRawDataWithoutDatatypes.png)
+
+&bnsp;
 
 Interestingly, the "Approval Date" column is set to an "object" datatype instead of a date/time datatype.
 
@@ -88,7 +100,11 @@ test3.dtypes
 
 Great, now our date/time columns have changed from being "object" datatype to "datetime" datatype!
 
+&bnsp;
+
 ![Raw dataset with datatypes](https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/GrantConnectPublicRawDataWithDatatypes.png)
+
+&bnsp;
 
 Having these columns correctly datatyped will ensure we can perform calculations on the date/time columns correctly.
 
@@ -96,13 +112,21 @@ Is there anything else left in our dataset to clean?
 
 You may have noticed the "Unnamed: 39" column when we previously ran the test3.dtypes command.
 
+&bnsp;
+
 ![Raw dataset empty column](https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/GrantConnectPublicRawDataEmptyColumn.png)
+
+&bnsp;
 
 It's odd that all of the columns have meaningful names except this one. Perhaps the column is not going to be valuable for our analysis.
 
 Before we ignore it, let's have a quick look at the values in the column by running the command `test3.loc[:, "Unnamed: 39"]`
 
+&bnsp;
+
 ![Raw dataset empty column values](https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/GrantConnectPublicRawDataEmptyColumnValues.png)
+
+&bnsp;
 
 Okay, the column seems like it's empty, or at least not contain any valuable data, so let's delete (drop) it from our dataset.
 
@@ -115,12 +139,20 @@ test4.dtypes
 
 The above command drops/deletes the column from our DataFrame, so now we have relatively clean dataset to perform our analysis from our original dirty data file scraped from the web!
 
+&bnsp;
+
 ![Raw dataset empty column dropped](https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/GrantConnectPublicRawDataEmptyColumnDropped.png)
+
+&bnsp;
 
 The DataFrame is ready to perform analysis to answer questions such as:
 
 - Which Government Departments/Agencies are providing the most funding?
 
+&bnsp;
+
 ![Raw dataset top agencies](https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/GrantConnectPublicRawDataTopAgencies.png)
+
+&bnsp;
 
 By starting your analysis with a clean dataset you can minimise your errors and troubleshooting time, and it will also improve your data literacy over time! 
