@@ -149,6 +149,8 @@ The DataFrame is ready to perform analysis to answer questions such as:
 
 - Which Government Departments/Agencies are providing the most funding?
 
+`test4.loc[:, ["Agency", "Value (AUD)"]].groupby("Agency").sum().sort_values(by="Value (AUD)", ascending=False)`
+
 &nbsp;
 
 ![Raw dataset top agencies](https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/GrantConnectPublicRawDataTopAgencies.png)
