@@ -4,7 +4,7 @@ title: "Encouraging Data Literacy - Data Cleaning"
 date: 2018-05-23
 ---
 
-*This poat is designed to improve data literacy by encouraging good data cleaning habits.*
+*This post is designed to improve data literacy by encouraging good data cleaning habits.*
 
 We will walk through a data cleansing process using data scraped from a public website.
 
