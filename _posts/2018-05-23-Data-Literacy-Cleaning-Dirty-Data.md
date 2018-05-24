@@ -33,19 +33,21 @@ We will be using Pandas library to access/manipulate the dataset, so let's pick 
 
 
 ![Python logo](https://www.python.org/static/favicon.ico)
-~~~ python
+~~~python
 import pandas as pd
 
 url = 'http://grants.gov.au/xxxxx77w3485w8tsgDownloadURLgoeshere'
 
-df_raw = pd.read_excel(url)
+test = pd.read_excel(url)
 
-df_raw.head()
+test.head()
 ~~~
 
 The above commands attempt to read the Excel file located at the address in "url" variable, which we copied from the GrantsConnect website, then display the first 5 rows of the file.
 
-We can see that something does not look exactly right - for example, the column headers are numbers instead of meaningful names.
+!(https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/GrantConnectPublicRawData.png)
+
+We can see that something does not look exactly right - for example, the column headers are labelled "Unnamed" instead of having meaningful names.
 
 Looking at values of the rows it seems like the column headers are not at the top of the file. In fact, they are on the 3rd row.
 
@@ -53,10 +55,12 @@ The first 2 rows of this file don't seem to contain anything valuable so we can 
 
 ![Python logo](https://www.python.org/static/favicon.ico)
 ~~~python
-df_raw = pd.read_excel(url, skiprows=2)
+test2 = pd.read_excel(url, skiprows=2)
 
-df_raw.head()
+test2.head()
 ~~~
+
+!(https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/GrantConnectPublicRawDataWithHeader.png)
 
 Now we can see that our column headers seem to be in the right place. Great!
 
@@ -64,17 +68,11 @@ The dataset is looking cleaner already, but let's keep exploring because there m
 
 We can see some date/time columns such as "Approved Date" and "Start Date", and it's important that these columns are identified as date/times by Pandas so that it can handle them correctly.
 
-Let's have a look.
+Let's have a look. The `test2.dtypes` command lists the columns and datatypes from our DataFrame.
 
+!(https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/GrantConnectPublicRawDataWithoutDatatypes.png)
 
-![Python logo](https://www.python.org/static/favicon.ico)
-~~~python
-df_raw.info()
-~~~
-
-The above command lists the columns and datatypes from our DataFrame called df_raw.
-
-That's interesting, the "Approved Date" column is set to an "object" datatype instead of a date/time datatype.
+Interestingly, the "Approval Date" column is set to an "object" datatype instead of a date/time datatype.
 
 In fact all of the date/time columns are all set to the "object" datatype, which for the sake of simplicity let's assume "object" means "text".
 
@@ -83,48 +81,46 @@ We've found the second issue with our dirty data file which needs to be cleaned:
 
 ![Python logo](https://www.python.org/static/favicon.ico)
 ~~~python
-df_raw = pd.read_excel(url, skiprows=2, parse_dates=["Approved Date", "Start Date"])
+test3 = pd.read_excel(url, skiprows=2, parse_dates=["Approval Date", "Variation Date", "Published Date/Time", "Start Date", "End Date"])
 
-df_raw.info()
+test3.dtypes
 ~~~
 
 Great, now our date/time columns have changed from being "object" datatype to "datetime" datatype!
+
+!(https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/GrantConnectPublicRawDataWithDatatypes.png)
 
 Having these columns correctly datatyped will ensure we can perform calculations on the date/time columns correctly.
 
 Is there anything else left in our dataset to clean?
 
-You may have noticed the "Unnamed: 39" column when we previously ran the df_raw.info() command.
+You may have noticed the "Unnamed: 39" column when we previously ran the test3.dtypes command.
+
+!(https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/GrantConnectPublicRawDataEmptyColumn.png)
 
 It's odd that all of the columns have meaningful names except this one. Perhaps the column is not going to be valuable for our analysis.
 
-Before we ignore it, let's have a quick look at the values in the column.
+Before we ignore it, let's have a quick look at the values in the column by running the command `test3.loc[:, "Unnamed: 39"]`
 
+!(https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/GrantConnectPublicRawDataEmptyColumnValues.png)
 
-![Python logo](https://www.python.org/static/favicon.ico)
-~~~python
-df_raw.loc[:, "Unnamed: 39"]
-~~~
- 
-Okay, the column seems like it's empty so let's delete (drop) it from our dataset.
-
+Okay, the column seems like it's empty, or at least not contain any valuable data, so let's delete (drop) it from our dataset.
 
 ![Python logo](https://www.python.org/static/favicon.ico)
 ~~~python
-df_raw.drop("Unnamed: 39", axis=1, inplace=True)
+test4 = test3.drop("Unnamed: 39", axis=1)
 
-df_raw.head()
+test4.dtypes
 ~~~
 
 The above command drops/deletes the column from our DataFrame, so now we have relatively clean dataset to perform our analysis from our original dirty data file scraped from the web!
 
+!(https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/GrantConnectPublicRawDataEmptyColumnDropped.png)
+
 The DataFrame is ready to perform analysis to answer questions such as:
 
-- Which Government Departments/Agencies are providing the most Grant funding?
+- Which Government Departments/Agencies are providing the most funding?
 
-By starting your analysis with a clean dataset you can minimise your errors and troubleshooting time, and it will also improve your data literacy over time!
+!(https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/GrantConnectPublicRawDataTopAgencies.png)
 
-
- 
-
- 
+By starting your analysis with a clean dataset you can minimise your errors and troubleshooting time, and it will also improve your data literacy over time! 
