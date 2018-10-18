@@ -16,7 +16,7 @@ I developed this solution because when I was checking or sending my email on my 
 
 &nbsp;
 
-![Solution Overview](https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/self_defence_solution_overview.png =400x)
+![Solution Overview](https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/self_defence_solution_overview.png)
 
 &nbsp;
 
