@@ -22,7 +22,7 @@ Then I scheduled hourly cron job to dump the last hours worth of logs from the m
 
 &nbsp;
 
-![Docker logo](https://github.com/docker/docker.github.io/raw/master/favicon.ico =64x)
+![Docker logo](https://png.icons8.com/color/50/000000/docker.png)
 
 ~~~ bash
 docker logs --since 1h <servername> > recentlogs.txt
