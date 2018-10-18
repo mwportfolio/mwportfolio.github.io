@@ -8,11 +8,13 @@ This post describes a solution to automate a defensive firewall configuration wh
 
 ### Why? 
 
-I developed this solution because when I was checking or sending my email on my phone, the application often timed out, was unresponsive or experienced very slow performance.
-
 &nbsp;
 
+I developed this solution because when I was checking or sending my email on my phone, the application often timed out, was unresponsive or experienced very slow performance.
+
 ### How?
+
+&nbsp;
 
 In summary, I investigated the logs for the mail server and identified potential issues that could impact performance.
 
@@ -58,6 +60,10 @@ I developed a bash script which inserted firewall with rules to DROP traffic fro
 for f in `cat $output_filename`; do iptables -I INPUT -p tcp -s $f -j DROP; done 
 
 ~~~
+
+&nbsp;
+
+### Result?
 
 &nbsp;
 
