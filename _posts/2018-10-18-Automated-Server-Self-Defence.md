@@ -12,6 +12,10 @@ In summary, I investigated the logs for the mail server and identified potential
 
 Then I scheduled hourly cron job to dump the last hours worth of logs from the mail server to a file, overwriting the file every hour with the latest logs.
 
+``` bash
+docker logs --since 1h <servername> > recentlogs.txt
+```
+
 I developed a Python script using pandas to read the dumped log file and identify IP addresses which had connected to the server more times than a preconfigured limit over an hour, then saved those IP addresses to a CSV file. This Python script was scheduled to run every hour, staggered 5 mins after the log dump cron job.
 
 I developed a bash script which inserted firewall with rules to DROP traffic from the aggressive IP addresses saved in the CSV file. The bash script was scheduled to run every hour staggered 5 mins after the Python script cron job.
