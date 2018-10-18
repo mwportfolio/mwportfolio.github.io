@@ -14,7 +14,7 @@ In summary, I investigated the logs for the mail server and identified potential
 
 Then I scheduled hourly cron job to dump the last hours worth of logs from the mail server to a file, overwriting the file every hour with the latest logs.
 
-![Docker logo](https://github.com/docker/docker.github.io/raw/master/favicon.ico)
+![Docker logo](https://github.com/docker/docker.github.io/raw/master/favicon.ico =64x)
 
 ~~~ bash
 docker logs --since 1h <servername> > recentlogs.txt
@@ -36,7 +36,7 @@ df_offenders.to_csv(output_filename)
 
 I developed a bash script which inserted firewall with rules to DROP traffic from the aggressive IP addresses saved in the CSV file. The bash script was scheduled to run every hour staggered 5 mins after the Python script cron job.
 
-![Bash logo](https://github.com/odb/official-bash-logo/raw/master/assets/Logos/Icons/PNG/128x128.png)
+![Bash logo](https://github.com/odb/official-bash-logo/raw/master/assets/Logos/Icons/PNG/64x64.png)
 
 ~~~ bash
 for f in `cat $output_filename`; do iptables -I INPUT -p tcp -s $f -j DROP; done 
