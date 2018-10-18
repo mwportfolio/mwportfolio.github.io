@@ -16,7 +16,7 @@ I developed this solution because when I was checking or sending my email on my 
 
 &nbsp;
 
-![Solution Overview](https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/self_defence_solution_overview.png){:height="30%" width="30%"}
+->![Solution Overview](https://github.com/mwportfolio/mwportfolio.github.io/raw/master/screenshots/self_defence_solution_overview.png){:height="50%" width="50%"}<-
 
 &nbsp;
 
